@@ -1,0 +1,15 @@
+---
+- name: Test playbook for git repository
+  hosts: all
+  become: yes
+  tasks:
+
+    - name: Ensure httpd is installed
+      yum:
+        name: httpd
+        state: present
+
+    - name: Ensure web page is loaded
+      template:
+        src: templates/index.html.j2
+        dest: /home/student/
