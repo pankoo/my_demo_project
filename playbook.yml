@@ -8,6 +8,12 @@
       yum:
         name: httpd
         state: present
+        
+    - name: Ensure web service is start and enabled
+      service:
+        name: httpd
+        state: started
+        enabled: true
 
     - name: Ensure web page is loaded
       template:
